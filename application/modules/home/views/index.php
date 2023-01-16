@@ -9,15 +9,28 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="<?= base_url(); ?>dist/css/bootstrap.min.css">
 
-  <title>Hello, world!</title>
+  <title>ABCount</title>
+  <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>dist/images/favicon.ico">
+  <style>
+    .ijo {
+      background-color: #4b5320 !important;
+    }
+
+    .abu {
+      background-color: #d3d3d3 !important;
+      border-color: #c3c3c3 !important;
+    }
+  </style>
 </head>
 
 <body>
   <!-- <h1>Hello, world!</h1> -->
   <div class="container">
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
-      <a class="navbar-brand" href="#"></a>
+    <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark ijo">
+      <a class="navbar-brand" href="#">
+        <img src="<?= base_url(); ?>dist/images/logo.png" height="32" alt="ABCount">
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -36,10 +49,11 @@
       </div>
     </nav>
     <!-- Navbar End -->
-    <div id="main">
+    <div id="main" class="mt-5">
       <form id="form" method="POST" action="<?= site_url(); ?>/home/save">
         <!-- Pilih Poli Start -->
         <div class="container" id="pilihPoli">
+          <hr>
           <div class="form-group row">
             <label for="unit_cost" class="col-md-3 col-sm-12 col-form-label"><b>Pilih Ruangan</b></label>
             <div class="col-md-9 col-sm-12">
@@ -51,7 +65,7 @@
             </div>
           </div>
           <div class="form-group row">
-            <button id="simpanPoli" class="col-md-3 col-sm-12 btn btn-primary">Simpan</button>
+            <button id="simpanPoli" class="col-md-3 col-sm-12 btn btn-primary abu">Simpan</button>
           </div>
         </div>
         <!-- Pilih Poli End -->
@@ -107,7 +121,7 @@
               </div>
             </div>
             <div class="form-group row">
-              <button id="btnTambahAktivitas" class="col-md-4 col-sm-12 btn btn-primary">Tambah</button>
+              <button id="btnTambahAktivitas" class="col-md-4 col-sm-12 btn btn-primary abu">Tambah</button>
             </div>
           </div>
           <div class="form-group row">
@@ -145,7 +159,7 @@
               </div>
             </div>
             <div class="form-group row">
-              <button id="btnTambahBahan" class="col-md-4 col-sm-12 btn btn-primary">Tambah</button>
+              <button id="btnTambahBahan" class="col-md-4 col-sm-12 btn btn-primary abu">Tambah</button>
             </div>
           </div>
           <div class="form-group row">
@@ -183,7 +197,7 @@
               </div>
             </div>
             <div class="form-group row">
-              <button id="btnTambahAlat" class="col-md-4 col-sm-12 btn btn-primary">Tambah</button>
+              <button id="btnTambahAlat" class="col-md-4 col-sm-12 btn btn-primary abu">Tambah</button>
             </div>
           </div>
           <div class="form-group row">
@@ -192,14 +206,20 @@
               <input type="text" class="form-control" id="unit_cost" name="unit_cost" disabled>
             </div>
           </div>
+          <div class="form-check row col">
+            <input class="form-check-input" type="checkbox" value="" id="check_yakin" required>
+            <label class="form-check-label" for="check_yakin">
+              <small><b>Saya yakin akta sudah diinput dengan benar</b></small>
+            </label>
+          </div>
           <div class="form-group row">
-            <button type="submit" class="col-md-12 col-sm-12 btn btn-primary">Simpan</button>
+            <button type="submit" class="col-md-12 col-sm-12 btn btn-primary ijo">Simpan</button>
           </div>
         </div>
         <!-- Main End -->
       </form>
     </div>
-    <div id="contactUs" class="d-none">
+    <div id="contactUs" class="d-none mt-5">
       <div class="container">
         <div class="form-group row">
           <button class="col-md-12 col-sm-12 btn btn-primary">contactUs</button>
@@ -208,19 +228,22 @@
         081477006462
       </div>
     </div>
-    <div id="videoTutorial" class="d-none">
+    <div id="videoTutorial" class="d-none mt-5">
       <div class="container">
         <div class="form-group row">
           <button class="col-md-12 col-sm-12 btn btn-primary">videoTutorial</button>
         </div>
       </div>
     </div>
-    <!-- Remove the container if you want to extend the Footer to full width. -->
-    <div class="my-5">
+    <!-- End of .container -->
+  </div>
 
-      <footer class="text-center text-lg-start" style="background-color: #218cffd6;">
-        <div class="container d-flex justify-content-center py-5">
-          <!-- <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+  <!-- Remove the container if you want to extend the Footer to full width. -->
+  <div>
+
+    <footer class="text-center text-lg-start ijo">
+      <div class="container d-flex justify-content-center py-5">
+        <!-- <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
             <i class="fab fa-facebook-f"></i>
           </button>
           <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
@@ -232,17 +255,15 @@
           <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
             <i class="fab fa-twitter"></i>
           </button> -->
-        </div>
+      </div>
 
-        <!-- Copyright -->
-        <div class="text-center text-white p-3 bg-primary">
-          © 2023
-        </div>
-        <!-- Copyright -->
-      </footer>
+      <!-- Copyright -->
+      <div class="text-center text-white p-3 ">
+        © 2023
+      </div>
+      <!-- Copyright -->
+    </footer>
 
-    </div>
-    <!-- End of .container -->
   </div>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -265,6 +286,10 @@
             $($(this).attr("href")).addClass('d-none');
           } else {
             $($(this).attr("href")).removeClass('d-none');
+            if ($(this).attr("href") == "#main") {
+              $("#pilihPoli").removeClass('d-none');
+              $("#home").addClass('d-none');
+            }
           };
         })
       })
