@@ -234,7 +234,7 @@
         <div class="card">
           <div class="card-body">
             <div class="container">
-              <image src="<?= base_url(); ?>dist/images/qr_wa.jpeg"></image>
+              <image src="<?= base_url(); ?>dist/images/qr_wa.jpeg" class="rounded mx-auto d-block"></image>
             </div>
             <hr>
             <div>Prasetyo Sarwo P <br>
