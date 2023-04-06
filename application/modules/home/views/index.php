@@ -54,6 +54,12 @@
         <!-- Pilih Poli Start -->
         <div class="container" id="pilihPoli">
           <hr>
+          <br>
+          <br>
+          <br>
+          <h2 class="text-center">Selamat Datang di Aplikasi Penghitungan Unit Cost</h2>
+          <br>
+          <br>
           <div class="form-group row">
             <label for="unit_cost" class="col-md-3 col-sm-12 col-form-label"><b>Pilih Ruangan</b></label>
             <div class="col-md-9 col-sm-12">
@@ -220,18 +226,28 @@
       </form>
     </div>
     <div id="contactUs" class="d-none mt-5">
+      <hr>
       <div class="container">
         <div class="form-group row">
-          <button class="col-md-12 col-sm-12 btn btn-primary">contactUs</button>
+          <button class="col-md-12 col-sm-12 btn btn-primary ijo">contactUs</button>
         </div>
-        Prasetyo Sarwo P <br>
-        081477006462
+        <div class="card">
+          <div class="card-body">
+            <div class="container">
+              <image src="<?= base_url(); ?>dist/images/qr_wa.jpeg"></image>
+            </div>
+            <hr>
+            <div>Prasetyo Sarwo P <br>
+              081477006462
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div id="videoTutorial" class="d-none mt-5">
       <div class="container">
         <div class="form-group row">
-          <button class="col-md-12 col-sm-12 btn btn-primary">videoTutorial</button>
+          <button class="col-md-12 col-sm-12 btn btn-primary ijo">videoTutorial</button>
         </div>
       </div>
     </div>
@@ -241,7 +257,11 @@
   <!-- Remove the container if you want to extend the Footer to full width. -->
   <div>
 
+    <br>
+    <br>
     <footer class="text-center text-lg-start ijo">
+      <br>
+      <br>
       <div class="container d-flex justify-content-center py-5">
         <!-- <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
             <i class="fab fa-facebook-f"></i>
@@ -259,7 +279,7 @@
 
       <!-- Copyright -->
       <div class="text-center text-white p-3 ">
-        © 2023
+        designed by healthinovation <br>@ 2023
       </div>
       <!-- Copyright -->
     </footer>
