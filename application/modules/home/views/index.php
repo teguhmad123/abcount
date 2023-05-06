@@ -45,6 +45,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#videoTutorial">Video Tutorial</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#list">Daftar Layanan Poli</a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -251,6 +254,38 @@
         </div>
       </div>
     </div>
+    <div id="list" class="d-none">
+      <div class="container">
+        <div class="form-group row">
+          <button class="col-md-12 col-sm-12 btn btn-primary">Daftar Layanan Poli</button>
+        </div>
+        <div>
+          <div class="form-group row">
+            <label for="unit_cost" class="col-md-3 col-sm-12 col-form-label"><b>Filter by Poli/Layanan</b></label>
+            <div class="col-md-9 col-sm-12">
+              <input id="cari" name="cari" class="form-control">
+            </div>
+          </div>
+          <div class="form-group row">
+            <button id="filter" class="col-md-3 col-sm-12 btn btn-primary">Cari</button>&nbsp&nbsp&nbsp
+            <button id="print" class="col-md-3 col-sm-12 btn btn-primary">Print</button>
+          </div>
+          <table border="solid" width="100%">
+            <thead>
+              <tr>
+                <th width="5%">No</th>
+                <th width="30%">Poli</th>
+                <th width="55%">Layanan</th>
+                <th width="10%">Cost</th>
+              </tr>
+            </thead>
+            <tbody id='tabel_daftar'>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
     <!-- End of .container -->
   </div>
 
@@ -299,6 +334,13 @@
     let total_btl = 0;
     let unit_cost = 0;
     $(document).ready(() => {
+       get_list();
+      $("#filter").click((e) => {
+        get_list();
+      });
+      $("#print").click((e) => {
+        print();
+      });
       $(".nav-link").click(function(e) {
         selectedNav = $(this).attr("href");
         $(".nav-link").each(function(i, obj) {
@@ -539,6 +581,32 @@
     function hitung_unit_cost() {
       unit_cost = total_bl + total_btl;
       $("#unit_cost").val(unit_cost);
+    }
+
+    function formatRupiah(angka) {
+      if (angka<1) {return 'Rp. 0' ;}
+      var reverse = angka.toString().split('').reverse().join('');
+      var ribuan = reverse.match(/\d{1,3}/g);
+      var hasil = ribuan.join('.').split('').reverse().join('');
+      return 'Rp ' + hasil;
+    }
+
+    function get_list() {
+      var teks = $('#cari').val();
+      $.getJSON("<?=site_url('home/list/')?>"+teks, function(data) {
+  // Memperbarui tabel dengan data
+        var table = $("#tabel_daftar");
+        table.empty();
+        var no = 1;
+        $.each(data, function(index, value) {
+          table.append("<tr><td>" + no++ + "</td><td>" + value.poli_nm + "</td><td>" + value.pelayanan_nm + "</td><td>" + formatRupiah(value.pelayanan_jml) + "</td></tr>");
+        });
+      });
+    }
+
+    function print() {
+      var teks = $('#cari').val();
+      window.open("<?=site_url('home/print/')?>"+teks, "_blank");
     }
   </script>
 </body>

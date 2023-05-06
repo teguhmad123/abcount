@@ -49,4 +49,19 @@ class Home extends CI_Controller
 	{
 		$this->m_home->tes();
 	}
+
+	public function list($cari='')
+	{
+		html_escape($cari);
+		$data = $this->m_home->get_data_pelayanan_poli($cari);
+		echo json_encode($data);
+		// $this->load->view('list', $data);
+	}
+
+	public function print($cari='')
+	{
+		html_escape($cari);
+		$data['data'] = $this->m_home->get_data_pelayanan_poli($cari);
+		$this->load->view('print', $data);
+	}
 }

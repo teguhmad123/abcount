@@ -88,4 +88,17 @@ class M_home extends CI_Model
 		echo json_encode($insert_id);
 		die;
 	}
+
+	public function get_data_pelayanan_poli($cari)
+	{
+		$this->db->select('a.*,b.*');
+		$this->db->from('mst_pelayanan a');
+		$this->db->join('mst_poli b', 'a.poli_id=b.poli_id');
+		if($cari!=''){
+			$this->db->like('a.pelayanan_nm',$cari,'booth');
+			$this->db->or_like('b.poli_nm',$cari,'booth');
+		}
+		$this->db->order_by('b.poli_id','asc');
+		return $this->db->get()->result_array();
+	}
 }
